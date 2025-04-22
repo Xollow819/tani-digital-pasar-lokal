@@ -61,6 +61,16 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				tani: {
+					'green': '#4CAF50',
+					'brown': '#8D6E63',
+					'yellow': '#FFC107',
+					'blue': '#03A9F4',
+					'light-green': '#A5D6A7',
+					'light-brown': '#D7CCC8',
+					'light-yellow': '#FFECB3',
+					'light-blue': '#B3E5FC'
 				}
 			},
 			borderRadius: {
