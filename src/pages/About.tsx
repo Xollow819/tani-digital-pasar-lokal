@@ -39,17 +39,17 @@ const About = () => {
 
   // Data pertanyaan umum
   const faqs = [{
-    question: "Apa itu Tani Digital?",
-    answer: "Tani Digital adalah platform yang menghubungkan petani dengan pembeli secara langsung, sekaligus menyediakan konten edukasi berupa video tutorial untuk meningkatkan keterampilan pertanian."
+    question: "Apa itu IPINI?",
+    answer: "IPINI adalah platform yang menghubungkan petani dengan pembeli secara langsung, sekaligus menyediakan konten edukasi berupa video tutorial untuk meningkatkan keterampilan pertanian."
   }, {
-    question: "Bagaimana cara menjual produk di Tani Digital?",
+    question: "Bagaimana cara menjual produk di IPINI?",
     answer: "Untuk menjual produk, Anda perlu mendaftar sebagai penjual, melengkapi profil, dan mengunggah produk pertanian yang ingin dijual. Platform kami terintegrasi dengan Shopee untuk kemudahan transaksi."
   }, {
     question: "Apakah semua petani bisa bergabung?",
-    answer: "Ya, semua petani di Indonesia bisa bergabung dengan platform Tani Digital tanpa biaya. Kami membuka kesempatan bagi petani skala kecil hingga besar."
+    answer: "Ya, semua petani di Indonesia bisa bergabung dengan platform IPINI tanpa biaya. Kami membuka kesempatan bagi petani skala kecil hingga besar."
   }, {
     question: "Bagaimana sistem pembayarannya?",
-    answer: "Pembayaran dilakukan melalui platform Shopee yang sudah terintegrasi dengan Tani Digital, menjamin keamanan transaksi bagi penjual dan pembeli."
+    answer: "Pembayaran dilakukan melalui platform Shopee yang sudah terintegrasi dengan IPINI, menjamin keamanan transaksi bagi penjual dan pembeli."
   }, {
     question: "Bagaimana cara berkontribusi dalam video edukasi?",
     answer: "Anda dapat mendaftar sebagai kontributor dan mengunggah video edukasi pertanian setelah melalui proses verifikasi oleh tim kami."
@@ -59,7 +59,7 @@ const About = () => {
       <section className="py-12 bg-gradient-to-r from-tani-light-green to-tani-light-blue">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Tentang Tani Digital
+            Tentang IPINI
           </h1>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
             Mendukung petani Indonesia melalui digitalisasi, edukasi, dan akses pasar yang lebih luas
@@ -189,9 +189,9 @@ const About = () => {
             </Button>
           </div>
           <div className="max-w-md mx-auto text-center text-gray-200">
-            <p className="mb-1">Jl. Pertanian No. 123, Jakarta Selatan</p>
-            <p className="mb-1">Telepon: +62 812 3456 7890</p>
-            <p>Email: info@tanidigital.id</p>
+            <p className="mb-1">Jl. Padjajaran Sekolah Vokasi IPB</p>
+            <p className="mb-1">Telepon: +62 895 2753 6850</p>
+            <p>Email: info@ipini.com</p>
           </div>
         </div>
       </section>
