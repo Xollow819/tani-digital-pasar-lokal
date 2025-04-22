@@ -1,3 +1,4 @@
+
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -217,7 +218,7 @@ const Home = () => {
             <Button asChild size="lg" className="bg-white text-tani-green hover:bg-white/90">
               <Link to="/daftar">Daftar Sekarang</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/20 hover:text-white">
               <Link to="/tentang">Pelajari Lebih Lanjut</Link>
             </Button>
           </div>
@@ -227,3 +228,4 @@ const Home = () => {
 };
 
 export default Home;
+
