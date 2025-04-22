@@ -6,25 +6,35 @@ import { Leaf, MessageSquare, ArrowRight } from "lucide-react";
 const About = () => {
   // Data tim
   const teamMembers = [{
-    name: "Budi Santoso",
+    name: "Mahda Aryo Firdaus",
     position: "Founder & CEO",
     avatar: "https://i.pravatar.cc/150?img=51",
     bio: "Seorang petani berpengalaman dan tech enthusiast yang peduli terhadap perkembangan pertanian di Indonesia."
   }, {
-    name: "Siti Rahayu",
+    name: "Muhammad Fauzan Lazwar",
     position: "Chief Technology Officer",
-    avatar: "https://i.pravatar.cc/150?img=32",
-    bio: "Ahli teknologi digital dengan pengalaman lebih dari 10 tahun dalam pengembangan platform e-commerce."
+    avatar: "https://sea3.discourse-cdn.com/outliercommunity/user_avatar/community.outlier.ai/fauzanlazwar28/288/945157_2.png",
+    bio: "Ahli teknologi digital dengan pengalaman lebih dari 100 tahun dalam pengembangan platform e-commerce."
   }, {
-    name: "Ahmad Rizky",
+    name: "Lidya",
     position: "Head of Agriculture",
     avatar: "https://i.pravatar.cc/150?img=11",
     bio: "Lulusan S3 Pertanian yang telah melakukan berbagai penelitian tentang pertanian berkelanjutan."
   }, {
-    name: "Dewi Susanti",
+    name: "Lisma",
     position: "Community Manager",
     avatar: "https://i.pravatar.cc/150?img=44",
     bio: "Mantan aktivis yang kini fokus membangun komunitas petani digital di berbagai daerah di Indonesia."
+  }, {
+    name: "Adam Anom Jati",
+    position: "Head of Agriculture",
+    avatar: "https://i.pravatar.cc/150?img=11",
+    bio: "Lulusan S3 Pertanian yang telah melakukan berbagai penelitian tentang pertanian berkelanjutan."
+  }, {
+    name: "Tari",
+    position: "Head of Agriculture",
+    avatar: "https://i.pravatar.cc/150?img=11",
+    bio: "Lulusan S3 Pertanian yang telah melakukan berbagai penelitian tentang pertanian berkelanjutan."
   }];
 
   // Data pertanyaan umum
