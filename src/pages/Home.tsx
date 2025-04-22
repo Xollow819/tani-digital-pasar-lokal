@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, ShoppingCart, Video, TreeDeciduous } from "lucide-react";
+
 const Home = () => {
   // Data produk unggulan
   const featuredProducts = [{
@@ -62,6 +63,7 @@ const Home = () => {
     creator: "Pertanian Maju",
     views: 12400
   }];
+
   return <Layout>
       {/* Hero Section */}
       <section className="relative bg-cover bg-center h-[500px] flex items-center" style={{
@@ -223,4 +225,5 @@ const Home = () => {
       </section>
     </Layout>;
 };
+
 export default Home;
