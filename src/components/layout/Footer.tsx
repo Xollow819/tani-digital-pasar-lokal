@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Tani Digital</h3>
+            <h3 className="text-xl font-bold mb-4">IPINI</h3>
             <p className="text-gray-200 mb-4">
               Platform digitalisasi pertanian yang menghubungkan petani langsung dengan pembeli dan menyediakan edukasi pertanian modern.
             </p>
@@ -62,14 +62,14 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail mr-2 mt-1"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                <span className="text-gray-200">info@tanidigital.id</span>
+                <span className="text-gray-200">info@ipini.com</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-200/20 mt-8 pt-8 text-center text-gray-200">
-          <p>&copy; 2025 Tani Digital. Hak Cipta Dilindungi.</p>
+          <p>&copy; 2025 IPINI. Hak Cipta Dilindungi.</p>
         </div>
       </div>
     </footer>
