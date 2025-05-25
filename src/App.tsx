@@ -1,3 +1,4 @@
+// src/App.tsx
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -15,6 +16,7 @@ import NotFound from "./pages/NotFound";
 import Cart from "./pages/Cart";
 import Profile from "./pages/Profile";
 import Orders from "./pages/Orders";
+import MessagesPage from "./pages/Messages"; // Import MessagesPage
 
 const queryClient = new QueryClient();
 
@@ -25,7 +27,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Navigate to="/login" replace />} /> {/* Redirect root to login */}
+          <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/home" element={<Home />} />
           <Route path="/marketplace" element={<Marketplace />} />
           <Route path="/product/:id" element={<ProductDetail />} />
@@ -33,11 +35,11 @@ const App = () => (
           <Route path="/edukasi/video/:id" element={<VideoDetail />} />
           <Route path="/tentang" element={<About />} />
           <Route path="/daftar" element={<SignUpPage />} />
-          <Route path="/login" element={<LoginPage />} /> {/* Login page route */}
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/orders" element={<Orders />} />
-          <Route path="/messages" element={<div>Messages Page Placeholder</div>} />
+          <Route path="/messages" element={<MessagesPage />} /> {/* Updated route */}
           <Route path="/settings" element={<div>Settings Page Placeholder</div>} />
           <Route path="/syarat-ketentuan" element={<div>Terms & Conditions Page Placeholder</div>} />
           <Route path="*" element={<NotFound />} />
