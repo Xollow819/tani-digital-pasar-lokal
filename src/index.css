@@ -1,135 +1,103 @@
-import type { Config } from "tailwindcss";
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-export default {
-	darkMode: ["class"], // Pastikan ini 'class'
-	content: [
-		"./pages/**/*.{ts,tsx}",
-		"./components/**/*.{ts,tsx}",
-		"./app/**/*.{ts,tsx}",
-		"./src/**/*.{ts,tsx}",
-	],
-	prefix: "",
-	theme: {
-		container: {
-			center: true,
-			padding: '2rem',
-			screens: {
-				'2xl': '1400px'
-			}
-		},
-		extend: {
-			colors: {
-				border: 'hsl(var(--border))',
-				input: 'hsl(var(--input))',
-				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
-				foreground: 'hsl(var(--foreground))',
-				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
-				},
-				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
-				},
-				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))'
-				},
-				muted: {
-					DEFAULT: 'hsl(var(--muted))',
-					foreground: 'hsl(var(--muted-foreground))'
-				},
-				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
-				},
-				popover: {
-					DEFAULT: 'hsl(var(--popover))',
-					foreground: 'hsl(var(--popover-foreground))'
-				},
-				card: {
-					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
-				},
-				// Variabel warna spesifik aplikasi Anda
-				tani: {
-					'green': '#4CAF50',
-					'brown': '#8D6E63',
-					'yellow': '#FFC107',
-					'blue': '#03A9F4',
-					'light-green': '#A5D6A7',
-					'light-brown': '#D7CCC8',
-					'light-yellow': '#FFECB3',
-					'light-blue': '#B3E5FC'
-				}
-			},
-			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
-			},
-			keyframes: {
-				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
-				},
-				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
-				}
-			},
-			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
-		}
-	},
-	plugins: [require("tailwindcss-animate")],
-} satisfies Config;
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IPINI - Tani Digital Pasar Lokal</title>
-    <meta name="description" content="Platform digitalisasi pertanian yang menghubungkan petani dengan pembeli dan menyediakan edukasi pertanian modern." />
-    <meta name="author" content="Tim IPINI" />
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 20 17% 41%; /* Coklat tua untuk teks */
 
-    <meta property="og:title" content="IPINI - Tani Digital Pasar Lokal" />
-    <meta property="og:description" content="Platform digitalisasi pertanian untuk masa depan pertanian Indonesia yang lebih baik." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="[https://lovable.dev/opengraph-image-p98pqg.png](https://lovable.dev/opengraph-image-p98pqg.png)" /> 
+    --card: 0 0% 100%;
+    --card-foreground: 20 17% 41%;
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@nama_twitter_anda" /> <meta name="twitter:image" content="[https://lovable.dev/opengraph-image-p98pqg.png](https://lovable.dev/opengraph-image-p98pqg.png)" />
-    <script>
-      // Skrip untuk menerapkan tema awal dari localStorage untuk menghindari kedipan
-      (function() {
-        const theme = localStorage.getItem('theme');
-        // Jika tema tersimpan adalah 'dark' ATAU (tidak ada tema tersimpan DAN preferensi sistem adalah dark)
-        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.classList.add('dark');
-        } else {
-          // Selain itu, pastikan kelas 'dark' dihapus (mode terang)
-          document.documentElement.classList.remove('dark');
-        }
-      })();
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
-```tsx
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 17% 41%;
+
+    --primary: 122 37% 49%; /* Hijau pertanian */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 36 100% 52%; /* Kuning matahari */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 84 30% 95%;
+    --muted-foreground: 20 17% 41%;
+
+    --accent: 199 100% 48%; /* Biru langit */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 122 15% 85%;
+    --input: 122 15% 85%;
+    --ring: 122 37% 49%;
+
+    --radius: 0.5rem;
+
+    /* Ini adalah variabel sidebar dari konfigurasi awal Anda, bisa Anda sesuaikan atau hapus jika tidak terpakai secara global */
+    --sidebar-background: 122 30% 95%;
+    --sidebar-foreground: 20 17% 41%;
+    --sidebar-primary: 122 37% 49%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 84 30% 95%;
+    --sidebar-accent-foreground: 20 17% 41%;
+    --sidebar-border: 122 15% 85%;
+    --sidebar-ring: 122 37% 49%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%; /* Primary untuk dark mode bisa berbeda, atau tetap sama jika kontrasnya baik */
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    /* Variabel sidebar untuk dark mode, sesuaikan jika perlu */
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif; /* Contoh: Menambahkan font family default */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Tambahkan gaya dasar lainnya jika perlu */
+}
