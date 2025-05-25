@@ -1,10 +1,11 @@
 // src/App.tsx
 import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner"; //
+import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { ThemeProvider } from "@/components/theme-provider"; // Added
+// Changed from "@/components/theme-provider" to relative path
+import { ThemeProvider } from "./components/theme-provider"; 
 import SignUpPage from "./pages/SignUp";
 import LoginPage from "./pages/Login";
 import Home from "./pages/Home";
@@ -18,20 +19,20 @@ import Cart from "./pages/Cart";
 import Profile from "./pages/Profile";
 import Orders from "./pages/Orders";
 import MessagesPage from "./pages/Messages";
-import SettingsPage from "./pages/SettingsPage"; // Added
+import SettingsPage from "./pages/SettingsPage"; 
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <ThemeProvider attribute="class" defaultTheme="system" enableSystem> {/* Added ThemeProvider */}
+  <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        <Sonner /> {/* */}
+        <Sonner />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Navigate to="/login" replace />} />
-            <Route path="/home" element={<Home />} /> {/* */}
+            <Route path="/home" element={<Home />} />
             <Route path="/marketplace" element={<Marketplace />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/edukasi" element={<Education />} />
@@ -43,7 +44,7 @@ const App = () => (
             <Route path="/profile" element={<Profile />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/messages" element={<MessagesPage />} />
-            <Route path="/settings" element={<SettingsPage />} /> {/* Updated route */}
+            <Route path="/settings" element={<SettingsPage />} /> 
             <Route path="/syarat-ketentuan" element={<div>Terms & Conditions Page Placeholder</div>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
