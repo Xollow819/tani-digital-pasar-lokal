@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SignUpPage from "./pages/SignUp";
 import Home from "./pages/Home";
 import Marketplace from "./pages/Marketplace";
 import ProductDetail from "./pages/ProductDetail";
@@ -26,7 +27,9 @@ const App = () => (
           <Route path="/edukasi" element={<Education />} />
           <Route path="/edukasi/video/:id" element={<VideoDetail />} />
           <Route path="/tentang" element={<About />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/daftar" element={<SignUpPage />} />
+          <Route path="/login" element={<div>Login Page Placeholder</div>} />
+          <Route path="/syarat-ketentuan" element={<div>Terms & Conditions Page Placeholder</div>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
