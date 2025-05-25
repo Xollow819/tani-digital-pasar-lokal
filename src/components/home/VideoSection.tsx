@@ -5,6 +5,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { educationalVideos, Video } from "@/data/educationalVideos";
 
 const VideoSection = () => {
+  // Show only first 3 videos on home page
+  const displayVideos = educationalVideos.slice(0, 3);
+
   return (
     <section className="py-16 bg-tani-light-brown/30">
       <div className="container mx-auto px-4">
@@ -16,7 +19,7 @@ const VideoSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {educationalVideos.map(video => (
+          {displayVideos.map(video => (
             <VideoCard key={video.id} video={video} />
           ))}
         </div>
