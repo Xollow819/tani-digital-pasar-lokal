@@ -63,5 +63,23 @@ export const educationalVideos: Video[] = [
     creator: "Jamur Praktis",
     views: 158000,
     videoUrl: "https://www.youtube.com/embed/ZVH2QHJcHsQ"
+  },
+  {
+    id: 7,
+    title: "Cara Menanam Padi Organik Modern",
+    thumbnail: "https://img.youtube.com/vi/dFzhjnjXc2o/maxresdefault.jpg",
+    duration: "28:15",
+    creator: "Padi Nusantara",
+    views: 312000,
+    videoUrl: "https://www.youtube.com/embed/dFzhjnjXc2o"
+  },
+  {
+    id: 8,
+    title: "Budidaya Sayuran Organik Tanpa Pestisida",
+    thumbnail: "https://img.youtube.com/vi/QvK4bANvWgE/maxresdefault.jpg",
+    duration: "21:30",
+    creator: "Organik Farm",
+    views: 275000,
+    videoUrl: "https://www.youtube.com/embed/QvK4bANvWgE"
   }
 ];
