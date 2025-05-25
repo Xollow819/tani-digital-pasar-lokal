@@ -1,12 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ShoppingCart, MessageSquare, Menu } from "lucide-react";
+import { ShoppingCart, MessageSquare, Menu, LogOut } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useState } from "react";
+import { toast } from "@/hooks/use-toast";
+
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  return <nav className="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-10">
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    console.log("User logging out");
+    
+    // Clear any stored user data (if any)
+    localStorage.clear();
+    sessionStorage.clear();
+    
+    // Show logout success message
+    toast({
+      title: "Berhasil Keluar",
+      description: "Anda telah keluar dari akun IPINI.",
+    });
+    
+    // Redirect to login page
+    navigate("/login");
+  };
+
+  return (
+    <nav className="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-10">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo and Brand */}
@@ -64,8 +86,9 @@ const Navbar = () => {
                 <DropdownMenuItem>
                   <Link to="/settings" className="w-full">Pengaturan</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span className="w-full">Keluar</span>
+                <DropdownMenuItem onClick={handleLogout} className="cursor-pointer text-red-600 hover:text-red-700">
+                  <LogOut className="mr-2 h-4 w-4" />
+                  <span>Keluar</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -80,15 +103,30 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && <div className="md:hidden mt-3 pb-3 border-t border-gray-200">
+        {isMobileMenuOpen && (
+          <div className="md:hidden mt-3 pb-3 border-t border-gray-200">
             <div className="flex flex-col space-y-3 pt-3">
               <Link to="/" className="text-gray-700 hover:text-tani-green font-medium" onClick={() => setIsMobileMenuOpen(false)}>Beranda</Link>
               <Link to="/marketplace" className="text-gray-700 hover:text-tani-green font-medium" onClick={() => setIsMobileMenuOpen(false)}>Marketplace</Link>
               <Link to="/edukasi" className="text-gray-700 hover:text-tani-green font-medium" onClick={() => setIsMobileMenuOpen(false)}>Edukasi</Link>
               <Link to="/tentang" className="text-gray-700 hover:text-tani-green font-medium" onClick={() => setIsMobileMenuOpen(false)}>Tentang Kami</Link>
+              <Button 
+                variant="ghost" 
+                className="justify-start text-red-600 hover:text-red-700 hover:bg-red-50" 
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  handleLogout();
+                }}
+              >
+                <LogOut className="mr-2 h-4 w-4" />
+                Keluar
+              </Button>
             </div>
-          </div>}
+          </div>
+        )}
       </div>
-    </nav>;
+    </nav>
+  );
 };
+
 export default Navbar;
