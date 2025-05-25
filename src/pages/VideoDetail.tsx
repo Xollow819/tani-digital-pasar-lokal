@@ -1,3 +1,4 @@
+
 import { useParams } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
@@ -16,11 +17,30 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
+interface Comment {
+  id: number;
+  user: string;
+  avatar: string;
+  content: string;
+  date: string;
+  likes: number;
+}
+
 const VideoDetail = () => {
   const { id } = useParams<{ id: string }>();
   const [comment, setComment] = useState("");
   const [isLiked, setIsLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(1250);
+  const [comments, setComments] = useState<Comment[]>([
+    {
+      id: 1,
+      user: "Budi Santoso",
+      avatar: "https://i.pravatar.cc/150?img=51",
+      content: "Video yang sangat informatif! Saya sudah mencoba sistem hidroponik sederhana di rumah dan hasilnya luar biasa. Terima kasih atas tutorialnya.",
+      date: "11 April 2025",
+      likes: 28
+    }
+  ]);
 
   // Find video from data
   const videoData = educationalVideos.find(v => v.id === parseInt(id || "1"));
@@ -41,16 +61,6 @@ const VideoDetail = () => {
     subscribers: 25600,
     category: "Teknik Menanam",
     tags: ["hidroponik", "sayuran", "urban farming", "bertanam tanpa tanah"],
-    comments: [
-      {
-        id: 1,
-        user: "Budi Santoso",
-        avatar: "https://i.pravatar.cc/150?img=51",
-        content: "Video yang sangat informatif! Saya sudah mencoba sistem hidroponik sederhana di rumah dan hasilnya luar biasa. Terima kasih atas tutorialnya.",
-        date: "11 April 2025",
-        likes: 28
-      }
-    ],
     relatedVideos: educationalVideos.filter(v => v.id !== parseInt(id || "1")).slice(0, 3)
   };
 
@@ -58,12 +68,44 @@ const VideoDetail = () => {
     e.preventDefault();
     if (!comment.trim()) return;
     
+    // Create new comment object
+    const newComment: Comment = {
+      id: comments.length + 1,
+      user: "Pengguna Baru", // In a real app, this would come from auth
+      avatar: "https://i.pravatar.cc/150?img=1",
+      content: comment.trim(),
+      date: new Date().toLocaleDateString('id-ID', { 
+        day: 'numeric', 
+        month: 'long', 
+        year: 'numeric' 
+      }),
+      likes: 0
+    };
+    
+    // Add comment to the beginning of the array
+    setComments(prevComments => [newComment, ...prevComments]);
+    
     console.log("Submitting comment:", comment);
     toast({
       title: "Komentar berhasil dikirim!",
       description: "Terima kasih atas komentar Anda.",
     });
     setComment("");
+  };
+
+  const handleCommentLike = (commentId: number) => {
+    setComments(prevComments => 
+      prevComments.map(comment => 
+        comment.id === commentId 
+          ? { ...comment, likes: comment.likes + 1 }
+          : comment
+      )
+    );
+    
+    toast({
+      title: "Komentar disukai!",
+      description: "Terima kasih atas dukungan Anda",
+    });
   };
 
   const handleLike = () => {
@@ -219,7 +261,7 @@ const VideoDetail = () => {
 
               {/* Comments Section */}
               <div>
-                <h2 className="font-semibold mb-6">{video.comments.length} Komentar</h2>
+                <h2 className="font-semibold mb-6">{comments.length} Komentar</h2>
                 
                 {/* Comment Form */}
                 <form onSubmit={handleCommentSubmit} className="mb-6">
@@ -233,9 +275,14 @@ const VideoDetail = () => {
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}
                         className="mb-2"
+                        rows={3}
                       />
                       <div className="flex justify-end">
-                        <Button type="submit" className="bg-tani-green hover:bg-tani-green/90">
+                        <Button 
+                          type="submit" 
+                          className="bg-tani-green hover:bg-tani-green/90"
+                          disabled={!comment.trim()}
+                        >
                           Kirim Komentar
                         </Button>
                       </div>
@@ -245,22 +292,27 @@ const VideoDetail = () => {
 
                 {/* Comment List */}
                 <div className="space-y-6">
-                  {video.comments.map((comment) => (
-                    <div key={comment.id} className="pb-4 border-b last:border-0">
+                  {comments.map((commentItem) => (
+                    <div key={commentItem.id} className="pb-4 border-b last:border-0">
                       <div className="flex gap-3">
                         <Avatar className="h-10 w-10">
-                          <AvatarImage src={comment.avatar} alt={comment.user} />
-                          <AvatarFallback>{comment.user.charAt(0)}</AvatarFallback>
+                          <AvatarImage src={commentItem.avatar} alt={commentItem.user} />
+                          <AvatarFallback>{commentItem.user.charAt(0)}</AvatarFallback>
                         </Avatar>
                         <div className="flex-1">
                           <div className="flex items-center mb-1">
-                            <p className="font-medium mr-2">{comment.user}</p>
-                            <p className="text-gray-500 text-xs">{comment.date}</p>
+                            <p className="font-medium mr-2">{commentItem.user}</p>
+                            <p className="text-gray-500 text-xs">{commentItem.date}</p>
                           </div>
-                          <p className="text-gray-700 mb-2">{comment.content}</p>
+                          <p className="text-gray-700 mb-2">{commentItem.content}</p>
                           <div className="flex items-center gap-4">
-                            <Button variant="ghost" size="sm" className="text-gray-500 hover:text-tani-green">
-                              <ThumbsUp className="h-4 w-4 mr-1" /> {comment.likes}
+                            <Button 
+                              variant="ghost" 
+                              size="sm" 
+                              className="text-gray-500 hover:text-tani-green"
+                              onClick={() => handleCommentLike(commentItem.id)}
+                            >
+                              <ThumbsUp className="h-4 w-4 mr-1" /> {commentItem.likes}
                             </Button>
                             <Button variant="ghost" size="sm" className="text-gray-500 hover:text-tani-green">
                               <MessageSquare className="h-4 w-4 mr-1" /> Balas
