@@ -1,3 +1,4 @@
+
 import { useParams } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
@@ -7,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ThumbsUp, MessageSquare, Share2, Video, Heart } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/hooks/use-toast";
 import { educationalVideos } from "@/data/educationalVideos";
 import {
   Breadcrumb,
@@ -230,30 +231,6 @@ const VideoDetail = () => {
                               <MessageSquare className="h-4 w-4 mr-1" /> Balas
                             </Button>
                           </div>
-
-                          {/* Replies */}
-                          {comment.replies && comment.replies.length > 0 && (
-                            <div className="mt-4 pl-6 border-l space-y-4">
-                              {comment.replies.map((reply) => (
-                                <div key={reply.id} className="flex gap-3">
-                                  <Avatar className="h-8 w-8">
-                                    <AvatarImage src={reply.avatar} alt={reply.user} />
-                                    <AvatarFallback>{reply.user.charAt(0)}</AvatarFallback>
-                                  </Avatar>
-                                  <div>
-                                    <div className="flex items-center mb-1">
-                                      <p className="font-medium mr-2">{reply.user}</p>
-                                      <p className="text-gray-500 text-xs">{reply.date}</p>
-                                    </div>
-                                    <p className="text-gray-700 mb-2">{reply.content}</p>
-                                    <Button variant="ghost" size="sm" className="text-gray-500 hover:text-tani-green">
-                                      <ThumbsUp className="h-4 w-4 mr-1" /> {reply.likes}
-                                    </Button>
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          )}
                         </div>
                       </div>
                     </div>
