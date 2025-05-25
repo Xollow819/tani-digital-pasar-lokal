@@ -11,7 +11,7 @@ const CTASection = () => {
           <Button asChild size="lg" className="bg-white text-tani-green hover:bg-white/90">
             <Link to="/daftar">Daftar Sekarang</Link>
           </Button>
-          <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/20 hover:text-white">
+          <Button asChild size="lg" className="bg-white text-tani-green hover:bg-white/90">
             <Link to="/tentang">Pelajari Lebih Lanjut</Link>
           </Button>
         </div>
