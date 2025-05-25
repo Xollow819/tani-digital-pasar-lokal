@@ -1,4 +1,5 @@
 // src/pages/Messages.tsx
+import React from 'react'; // Ditambahkan
 import Layout from "@/components/layout/Layout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Bell, ShoppingCart, CheckCircle } from "lucide-react";
@@ -113,16 +114,6 @@ const MessagesPage = () => {
             )}
           </CardContent>
         </Card>
-
-        {/* Placeholder untuk chat penjual-pembeli jika ingin dikembangkan */}
-        {/* <Card className="mt-8">
-          <CardHeader>
-            <CardTitle>Obrolan Langsung (Segera Hadir)</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-gray-500">Fitur obrolan langsung antara penjual dan pembeli akan segera tersedia.</p>
-          </CardContent>
-        </Card> */}
       </div>
     </Layout>
   );
