@@ -1,4 +1,3 @@
-
 export interface Video {
   id: number;
   title: string;
@@ -12,12 +11,12 @@ export interface Video {
 export const educationalVideos: Video[] = [
   {
     id: 1,
-    title: "Cara Menanam Hidroponik Sederhana di Rumah",
-    thumbnail: "https://img.youtube.com/vi/YoGGbx_7JN8/maxresdefault.jpg",
-    duration: "16:45",
-    creator: "Kebun Kita Channel",
-    views: 340000,
-    videoUrl: "https://www.youtube.com/embed/YoGGbx_7JN8"
+    title: "Tutorial Lengkap Budidaya Hidroponik NFT dari Awal",
+    thumbnail: "https://img.youtube.com/vi/mFhIVIf-Kb4/maxresdefault.jpg",
+    duration: "15:32",
+    creator: "Hidroponik Channel",
+    views: 245000,
+    videoUrl: "https://www.youtube.com/embed/mFhIVIf-Kb4"
   },
   {
     id: 2,
