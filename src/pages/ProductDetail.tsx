@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
@@ -9,12 +8,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { 
   Star, 
   MessageSquare, 
-  ShoppingCart, 
-  ArrowRight,
+  ShoppingCart,
   Share2,
   Heart,
   Truck,
-  ShieldCheck,
   User
 } from "lucide-react";
 import {
@@ -41,7 +38,6 @@ const ProductDetail = () => {
     stock: 150,
     seller: "Tani Makmur",
     location: "Bandung, Jawa Barat",
-    shopee: "tanimakmur",
     description: "Bibit sayuran organik premium berkualitas tinggi, ditanam dengan metode pertanian organik tanpa pestisida dan bahan kimia berbahaya. Cocok untuk ditanam di pekarangan rumah, kebun, atau pot. Menghasilkan sayuran yang sehat, segar, dan kaya nutrisi.",
     rating: 4.8,
     reviewCount: 156,
@@ -285,21 +281,6 @@ const ProductDetail = () => {
               <Button variant="outline" size="icon" className="rounded-full border-gray-300">
                 <Share2 className="h-4 w-4" />
               </Button>
-            </div>
-
-            <div className="flex items-center p-4 bg-tani-light-yellow rounded-lg">
-              <ShieldCheck className="h-5 w-5 text-tani-yellow mr-3" />
-              <div>
-                <p className="font-medium">Juga tersedia di Shopee</p>
-                <a 
-                  href={`https://shopee.co.id/${product.shopee}`} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-sm text-tani-green hover:underline flex items-center mt-1"
-                >
-                  Kunjungi toko <ArrowRight className="ml-1 h-3 w-3" />
-                </a>
-              </div>
             </div>
           </div>
         </div>

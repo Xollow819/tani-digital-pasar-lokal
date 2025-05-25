@@ -1,11 +1,10 @@
-
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Star, Search, ShoppingCart, ArrowRight } from "lucide-react";
+import { Star, Search, ShoppingCart } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { useState } from "react";
 
@@ -38,7 +37,6 @@ const Marketplace = () => {
       price: 35000,
       seller: "Tani Makmur",
       location: "Bandung, Jawa Barat",
-      shopee: "tanimakmur",
       rating: 4.8,
       reviewCount: 156,
       category: "bibit"
@@ -50,7 +48,6 @@ const Marketplace = () => {
       price: 75000,
       seller: "Organik Nusantara",
       location: "Bogor, Jawa Barat",
-      shopee: "organik_nusantara",
       rating: 4.9,
       reviewCount: 203,
       category: "pupuk"
@@ -62,7 +59,6 @@ const Marketplace = () => {
       price: 450000,
       seller: "Agritech Indonesia",
       location: "Surabaya, Jawa Timur",
-      shopee: "agritech_id",
       rating: 4.7,
       reviewCount: 89,
       category: "alat"
@@ -74,7 +70,6 @@ const Marketplace = () => {
       price: 85000,
       seller: "Kebun Subur Abadi",
       location: "Malang, Jawa Timur",
-      shopee: "kebunsubur",
       rating: 5.0,
       reviewCount: 128,
       category: "buah"
@@ -86,7 +81,6 @@ const Marketplace = () => {
       price: 28000,
       seller: "Bibit Berkah",
       location: "Yogyakarta",
-      shopee: "bibitberkah",
       rating: 4.6,
       reviewCount: 97,
       category: "bibit"
@@ -98,7 +92,6 @@ const Marketplace = () => {
       price: 45000,
       seller: "Rempah Nusantara",
       location: "Medan, Sumatera Utara",
-      shopee: "rempahnusantara",
       rating: 4.9,
       reviewCount: 112,
       category: "rempah"
@@ -110,7 +103,6 @@ const Marketplace = () => {
       price: 15000,
       seller: "Kebun Sehat",
       location: "Depok, Jawa Barat",
-      shopee: "kebunsehat",
       rating: 4.7,
       reviewCount: 78,
       category: "sayuran"
@@ -122,7 +114,6 @@ const Marketplace = () => {
       price: 185000,
       seller: "Alat Tani Modern",
       location: "Solo, Jawa Tengah",
-      shopee: "alattanimodern",
       rating: 4.8,
       reviewCount: 65,
       category: "alat"
@@ -338,34 +329,6 @@ const Marketplace = () => {
                   Selanjutnya
                 </Button>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Integration with Shopee */}
-      <section className="py-10 bg-tani-light-yellow">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="w-full md:w-1/2">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                Terintegrasi dengan Shopee
-              </h2>
-              <p className="text-gray-700 mb-6">
-                Produk yang Anda lihat juga tersedia di marketplace Shopee. Dapatkan kemudahan pembayaran dan pengiriman melalui platform e-commerce terpercaya.
-              </p>
-              <Button asChild className="bg-[#EE4D2D] hover:bg-[#EE4D2D]/90">
-                <a href="https://shopee.co.id" target="_blank" rel="noopener noreferrer">
-                  Kunjungi Shopee <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
-            </div>
-            <div className="w-full md:w-1/2 flex justify-center">
-              <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Shopee_logo.svg/2560px-Shopee_logo.svg.png" 
-                alt="Shopee" 
-                className="h-24 md:h-32 object-contain"
-              />
             </div>
           </div>
         </div>
