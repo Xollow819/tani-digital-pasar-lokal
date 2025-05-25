@@ -18,24 +18,8 @@
   </head>
 
   <body>
-    <script>
-      (function() {
-        try {
-          const theme = localStorage.getItem('theme'); // 'theme' is the default key used by next-themes
-          const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-          const currentTheme = theme === 'system' || !theme ? systemTheme : theme;
-          if (currentTheme === 'dark') {
-            document.documentElement.classList.add('dark');
-          } else {
-            document.documentElement.classList.remove('dark');
-          }
-        } catch (e) {
-          // Fallback or do nothing
-          console.error('Error applying initial theme:', e);
-        }
-      })();
-    </script>
     <div id="root"></div>
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
