@@ -1,13 +1,14 @@
-
 import { useParams } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ThumbsUp, MessageSquare, Share2, Video } from "lucide-react";
+import { ThumbsUp, MessageSquare, Share2, Video, Heart } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
+import { toast } from "@/components/ui/use-toast";
+import { educationalVideos } from "@/data/educationalVideos";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -18,19 +19,23 @@ import {
 const VideoDetail = () => {
   const { id } = useParams<{ id: string }>();
   const [comment, setComment] = useState("");
+  const [isLiked, setIsLiked] = useState(false);
 
-  // Data video (contoh data statis, pada implementasi nyata akan diambil dari API)
+  // Find video from data
+  const videoData = educationalVideos.find(v => v.id === parseInt(id || "1"));
+  
+  // Extended video data (combining with existing detailed data)
   const video = {
-    id: 1,
-    title: "Teknik Hidroponik untuk Pemula",
-    description: "Dalam video ini, Dr. Agus Budiman menjelaskan cara memulai sistem hidroponik sederhana di rumah. Hidroponik adalah metode bertanam tanpa tanah yang memanfaatkan larutan nutrisi. Keuntungan dari sistem hidroponik antara lain efisiensi air, penggunaan lahan yang minimal, dan hasil panen yang lebih cepat.\n\nMateri yang dibahas dalam video ini meliputi:\n- Pengenalan sistem hidroponik\n- Jenis-jenis sistem hidroponik untuk pemula\n- Bahan dan alat yang diperlukan\n- Langkah-langkah pembuatan sistem NFT (Nutrient Film Technique)\n- Cara membuat nutrisi hidroponik\n- Pemilihan tanaman yang cocok untuk hidroponik\n- Perawatan dan monitoring sistem\n\nSetelah menonton video ini, Anda akan memiliki pengetahuan dasar untuk memulai bercocok tanam dengan sistem hidroponik di rumah.",
-    thumbnail: "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder, pada implementasi nyata akan menggunakan URL video sebenarnya
-    duration: "12:45",
-    views: 15600,
+    id: videoData?.id || 1,
+    title: videoData?.title || "Teknik Hidroponik untuk Pemula",
+    description: "Dalam video ini, Dr. Agus Budiman menjelaskan cara memulai sistem hidroponik sederhana di rumah. Hidroponik adalah metode bertanam tanpa tanah yang memanfaatkan larutan nutrisi...",
+    thumbnail: videoData?.thumbnail || "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    videoUrl: videoData?.videoUrl || "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    duration: videoData?.duration || "12:45",
+    views: videoData?.views || 15600,
     likes: 1250,
     date: "10 April 2025",
-    creator: "Dr. Agus Budiman",
+    creator: videoData?.creator || "Dr. Agus Budiman",
     creatorAvatar: "https://i.pravatar.cc/150?img=12",
     subscribers: 25600,
     category: "Teknik Menanam",
@@ -43,70 +48,45 @@ const VideoDetail = () => {
         content: "Video yang sangat informatif! Saya sudah mencoba sistem hidroponik sederhana di rumah dan hasilnya luar biasa. Terima kasih atas tutorialnya.",
         date: "11 April 2025",
         likes: 28
-      },
-      {
-        id: 2,
-        user: "Siti Nurhaliza",
-        avatar: "https://i.pravatar.cc/150?img=32",
-        content: "Apakah bisa diterapkan untuk tanaman buah seperti strawberry?",
-        date: "10 April 2025",
-        likes: 15,
-        replies: [
-          {
-            id: 21,
-            user: "Dr. Agus Budiman",
-            avatar: "https://i.pravatar.cc/150?img=12",
-            content: "Tentu saja bisa! Strawberry termasuk tanaman yang cocok untuk sistem hidroponik. Pada video berikutnya saya akan membahas khusus tentang budidaya strawberry hidroponik.",
-            date: "10 April 2025",
-            likes: 20
-          }
-        ]
-      },
-      {
-        id: 3,
-        user: "Ahmad Rasyid",
-        avatar: "https://i.pravatar.cc/150?img=67",
-        content: "Berapa estimasi biaya untuk membuat sistem hidroponik seperti yang dijelaskan dalam video?",
-        date: "9 April 2025",
-        likes: 10
       }
     ],
-    relatedVideos: [
-      {
-        id: 2,
-        title: "Mengatasi Hama Tanaman Secara Alami",
-        thumbnail: "https://images.unsplash.com/photo-1566045638967-51a1b087be69?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        duration: "18:22",
-        views: 8900,
-        creator: "Tani Mandiri"
-      },
-      {
-        id: 3,
-        title: "Budidaya Sayuran Organik",
-        thumbnail: "https://images.unsplash.com/photo-1528359645462-5ff231885278?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        duration: "21:10",
-        views: 12400,
-        creator: "Pertanian Maju"
-      },
-      {
-        id: 4,
-        title: "Teknik Pemupukan yang Efektif",
-        thumbnail: "https://images.unsplash.com/photo-1599401759022-1856e1ee6b48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        duration: "15:30",
-        views: 7800,
-        creator: "Kebun Hijau"
-      }
-    ]
+    relatedVideos: educationalVideos.filter(v => v.id !== parseInt(id || "1")).slice(0, 3)
   };
 
-  // Handle fungsi mengirim komentar
   const handleCommentSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!comment.trim()) return;
     
     console.log("Submitting comment:", comment);
-    // Reset input setelah mengirim
+    toast({
+      title: "Komentar berhasil dikirim!",
+      description: "Terima kasih atas komentar Anda.",
+    });
     setComment("");
+  };
+
+  const handleLike = () => {
+    setIsLiked(!isLiked);
+    toast({
+      title: isLiked ? "Like dibatalkan" : "Video disukai!",
+      description: isLiked ? "Anda telah membatalkan like" : "Terima kasih atas dukungan Anda",
+    });
+  };
+
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: video.title,
+        text: `Tonton video edukasi: ${video.title}`,
+        url: window.location.href,
+      });
+    } else {
+      navigator.clipboard.writeText(window.location.href);
+      toast({
+        title: "Link disalin!",
+        description: "Link video telah disalin ke clipboard",
+      });
+    }
   };
 
   return (
@@ -168,11 +148,15 @@ const VideoDetail = () => {
                   </div>
                 </div>
                 <div className="flex space-x-2">
-                  <Button variant="outline" className="flex items-center">
+                  <Button 
+                    variant="outline" 
+                    className={`flex items-center ${isLiked ? 'bg-tani-green text-white' : ''}`}
+                    onClick={handleLike}
+                  >
                     <ThumbsUp className="mr-2 h-4 w-4" />
                     <span>{video.likes.toLocaleString('id-ID')}</span>
                   </Button>
-                  <Button variant="outline" className="flex items-center">
+                  <Button variant="outline" className="flex items-center" onClick={handleShare}>
                     <Share2 className="mr-2 h-4 w-4" />
                     <span>Bagikan</span>
                   </Button>
