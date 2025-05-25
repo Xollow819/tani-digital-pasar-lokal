@@ -1,4 +1,4 @@
-
+// src/pages/Login.tsx
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -59,7 +59,7 @@ const LoginPage = () => {
       description: "Selamat datang kembali di IPINI.",
     });
 
-    navigate("/");
+    navigate("/home"); //MODIFIED: Navigate to /home after successful login
     setIsLoading(false);
   };
 
@@ -75,7 +75,7 @@ const LoginPage = () => {
       description: "Selamat datang di IPINI.",
     });
     
-    navigate("/");
+    navigate("/home"); //MODIFIED: Navigate to /home after successful Google login
     setIsGoogleLoading(false);
   };
 
@@ -91,7 +91,7 @@ const LoginPage = () => {
       description: "Selamat datang di IPINI.",
     });
     
-    navigate("/");
+    navigate("/home"); //MODIFIED: Navigate to /home after successful Facebook login
     setIsFacebookLoading(false);
   };
 
