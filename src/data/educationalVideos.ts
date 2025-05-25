@@ -13,55 +13,55 @@ export const educationalVideos: Video[] = [
   {
     id: 1,
     title: "Cara Menanam Hidroponik Sederhana di Rumah",
-    thumbnail: "https://img.youtube.com/vi/RTvWpWsyD5Y/maxresdefault.jpg",
-    duration: "10:32",
-    creator: "Kebun Kita TV",
-    views: 425000,
-    videoUrl: "https://www.youtube.com/embed/RTvWpWsyD5Y"
+    thumbnail: "https://img.youtube.com/vi/o7OPXRy6U3Y/maxresdefault.jpg",
+    duration: "15:24",
+    creator: "Pak Tani Digital",
+    views: 125000,
+    videoUrl: "https://www.youtube.com/embed/o7OPXRy6U3Y"
   },
   {
     id: 2,
     title: "Tutorial Hidroponik untuk Pemula",
-    thumbnail: "https://img.youtube.com/vi/HGU85tkV2y8/maxresdefault.jpg",
-    duration: "15:45",
-    creator: "Tani Cerdas",
-    views: 312000,
-    videoUrl: "https://www.youtube.com/embed/HGU85tkV2y8"
+    thumbnail: "https://img.youtube.com/vi/YT8s4fKDPbw/maxresdefault.jpg",
+    duration: "18:32",
+    creator: "Hidroponik Praktis",
+    views: 89000,
+    videoUrl: "https://www.youtube.com/embed/YT8s4fKDPbw"
   },
   {
     id: 3,
     title: "Teknik Pemupukan yang Benar untuk Tanaman",
-    thumbnail: "https://img.youtube.com/vi/4XmA7b0_FfA/maxresdefault.jpg",
-    duration: "12:18",
-    creator: "Petani Milenial",
-    views: 198000,
-    videoUrl: "https://www.youtube.com/embed/4XmA7b0_FfA"
+    thumbnail: "https://img.youtube.com/vi/sNFBLMl2klU/maxresdefault.jpg",
+    duration: "12:45",
+    creator: "Tani Modern",
+    views: 67000,
+    videoUrl: "https://www.youtube.com/embed/sNFBLMl2klU"
   },
   {
     id: 4,
     title: "Mengatasi Hama Tanaman Secara Alami",
-    thumbnail: "https://img.youtube.com/vi/Z8q8VYV8iQs/maxresdefault.jpg",
-    duration: "14:25",
-    creator: "Organik Indonesia",
-    views: 267000,
-    videoUrl: "https://www.youtube.com/embed/Z8q8VYV8iQs"
+    thumbnail: "https://img.youtube.com/vi/9Auq9mYxFEE/maxresdefault.jpg",
+    duration: "14:18",
+    creator: "Kebun Organik",
+    views: 143000,
+    videoUrl: "https://www.youtube.com/embed/9Auq9mYxFEE"
   },
   {
     id: 5,
     title: "Cara Menanam Cabai yang Menguntungkan",
-    thumbnail: "https://img.youtube.com/vi/u_vJW8XaJuM/maxresdefault.jpg",
-    duration: "18:42",
-    creator: "Agrobisnis Modern",
-    views: 389000,
-    videoUrl: "https://www.youtube.com/embed/u_vJW8XaJuM"
+    thumbnail: "https://img.youtube.com/vi/rCvL_FomGn0/maxresdefault.jpg",
+    duration: "22:15",
+    creator: "Agribisnis Sukses",
+    views: 98000,
+    videoUrl: "https://www.youtube.com/embed/rCvL_FomGn0"
   },
   {
     id: 6,
     title: "Budidaya Jamur Tiram di Rumah",
-    thumbnail: "https://img.youtube.com/vi/gNbdqGcMUGE/maxresdefault.jpg",
-    duration: "16:33",
-    creator: "Jamur Organik",
-    views: 156000,
-    videoUrl: "https://www.youtube.com/embed/gNbdqGcMUGE"
+    thumbnail: "https://img.youtube.com/vi/bSF5rhkNa8g/maxresdefault.jpg",
+    duration: "16:42",
+    creator: "Jamur Indonesia",
+    views: 75000,
+    videoUrl: "https://www.youtube.com/embed/bSF5rhkNa8g"
   }
 ];
