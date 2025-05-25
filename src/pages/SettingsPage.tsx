@@ -20,13 +20,13 @@ const SettingsPage = () => {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
+React.useEffect(() => {
+  setMounted(true);
+}, []);
 
-  if (!mounted) {
-    return null; // Avoid hydration mismatch
-  }
+if (!mounted) {
+  return null; // Avoid hydration mismatch or rendering before theme is known
+}
 
   const isDarkMode = theme === "dark";
 
