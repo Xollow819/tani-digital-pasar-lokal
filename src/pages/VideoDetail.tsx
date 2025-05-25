@@ -1,4 +1,3 @@
-
 import { useParams } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
@@ -21,6 +20,7 @@ const VideoDetail = () => {
   const { id } = useParams<{ id: string }>();
   const [comment, setComment] = useState("");
   const [isLiked, setIsLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(1250);
 
   // Find video from data
   const videoData = educationalVideos.find(v => v.id === parseInt(id || "1"));
@@ -34,7 +34,7 @@ const VideoDetail = () => {
     videoUrl: videoData?.videoUrl || "https://www.youtube.com/embed/dQw4w9WgXcQ",
     duration: videoData?.duration || "12:45",
     views: videoData?.views || 15600,
-    likes: 1250,
+    likes: likeCount,
     date: "10 April 2025",
     creator: videoData?.creator || "Dr. Agus Budiman",
     creatorAvatar: "https://i.pravatar.cc/150?img=12",
@@ -67,26 +67,53 @@ const VideoDetail = () => {
   };
 
   const handleLike = () => {
-    setIsLiked(!isLiked);
+    const newLikedState = !isLiked;
+    setIsLiked(newLikedState);
+    setLikeCount(prev => newLikedState ? prev + 1 : prev - 1);
+    
     toast({
-      title: isLiked ? "Like dibatalkan" : "Video disukai!",
-      description: isLiked ? "Anda telah membatalkan like" : "Terima kasih atas dukungan Anda",
+      title: newLikedState ? "Video disukai!" : "Like dibatalkan",
+      description: newLikedState ? "Terima kasih atas dukungan Anda" : "Anda telah membatalkan like",
     });
   };
 
-  const handleShare = () => {
-    if (navigator.share) {
-      navigator.share({
-        title: video.title,
-        text: `Tonton video edukasi: ${video.title}`,
-        url: window.location.href,
-      });
-    } else {
-      navigator.clipboard.writeText(window.location.href);
-      toast({
-        title: "Link disalin!",
-        description: "Link video telah disalin ke clipboard",
-      });
+  const handleShare = async () => {
+    const shareData = {
+      title: video.title,
+      text: `Tonton video edukasi: ${video.title}`,
+      url: window.location.href,
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+        toast({
+          title: "Video berhasil dibagikan!",
+          description: "Terima kasih telah membagikan video ini",
+        });
+      } else {
+        await navigator.clipboard.writeText(window.location.href);
+        toast({
+          title: "Link berhasil disalin!",
+          description: "Link video telah disalin ke clipboard",
+        });
+      }
+    } catch (error) {
+      console.log('Error sharing:', error);
+      // Fallback: copy to clipboard
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        toast({
+          title: "Link berhasil disalin!",
+          description: "Link video telah disalin ke clipboard",
+        });
+      } catch (clipboardError) {
+        toast({
+          title: "Gagal membagikan",
+          description: "Silakan salin link secara manual",
+          variant: "destructive"
+        });
+      }
     }
   };
 
@@ -151,13 +178,21 @@ const VideoDetail = () => {
                 <div className="flex space-x-2">
                   <Button 
                     variant="outline" 
-                    className={`flex items-center ${isLiked ? 'bg-tani-green text-white' : ''}`}
+                    className={`flex items-center transition-all duration-200 ${
+                      isLiked 
+                        ? 'bg-tani-green text-white border-tani-green hover:bg-tani-green/90' 
+                        : 'hover:bg-tani-green/10 hover:border-tani-green hover:text-tani-green'
+                    }`}
                     onClick={handleLike}
                   >
-                    <ThumbsUp className="mr-2 h-4 w-4" />
-                    <span>{video.likes.toLocaleString('id-ID')}</span>
+                    <ThumbsUp className={`mr-2 h-4 w-4 transition-transform ${isLiked ? 'scale-110' : ''}`} />
+                    <span>{likeCount.toLocaleString('id-ID')}</span>
                   </Button>
-                  <Button variant="outline" className="flex items-center" onClick={handleShare}>
+                  <Button 
+                    variant="outline" 
+                    className="flex items-center hover:bg-blue-50 hover:border-blue-300 hover:text-blue-600 transition-colors" 
+                    onClick={handleShare}
+                  >
                     <Share2 className="mr-2 h-4 w-4" />
                     <span>Bagikan</span>
                   </Button>
