@@ -1,4 +1,5 @@
 import Layout from "@/components/layout/Layout";
+import components from "@/src/components";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -18,7 +19,7 @@ const About = () => {
   }, {
     name: "Lidya",
     position: "Head of Agriculture",
-    avatar: "https://i.pravatar.cc/150?img=11",
+    avatar: "src/components/WhatsApp Image 2025-05-26 at 11.07.20.jpeg",
     bio: "Lulusan S3 Pertanian yang telah melakukan berbagai penelitian tentang pertanian berkelanjutan."
   }, {
     name: "Lisma",
@@ -33,7 +34,7 @@ const About = () => {
   }, {
     name: "Tari",
     position: "Head of Agriculture",
-    avatar: "https://i.pravatar.cc/150?img=11",
+    avatar: "src/components/WhatsApp Image 2025-05-26 at 11.02.56.jpeg",
     bio: "Lulusan S3 Pertanian yang telah melakukan berbagai penelitian tentang pertanian berkelanjutan."
   }];
 
