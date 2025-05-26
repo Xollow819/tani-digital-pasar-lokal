@@ -18,7 +18,7 @@ const About = () => {
   }, {
     name: "Lidya",
     position: "Head of Agriculture",
-    avatar: "src/components/WhatsApp Image 2025-05-26 at 11.07.20.jpeg",
+    avatar: "https://drive.google.com/file/d/1kEHDzNZwIlWvA0Gfxf4FZ4rSk4TyQQKV/view?usp=drive_link",
     bio: "Lulusan S3 Pertanian yang telah melakukan berbagai penelitian tentang pertanian berkelanjutan."
   }, {
     name: "Lisma",
@@ -33,7 +33,7 @@ const About = () => {
   }, {
     name: "Tari",
     position: "Head of Agriculture",
-    avatar: "src/components/WhatsApp Image 2025-05-26 at 11.02.56.jpeg",
+    avatar: "https://drive.google.com/file/d/1W1osZzpd3XMX2J3BviRQJTs00vGnHf94/view?usp=drive_link",
     bio: "Lulusan S3 Pertanian yang telah melakukan berbagai penelitian tentang pertanian berkelanjutan."
   }];
 
