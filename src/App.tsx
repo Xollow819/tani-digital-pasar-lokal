@@ -1,4 +1,3 @@
-
 // src/App.tsx
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -20,6 +19,7 @@ import Profile from "./pages/Profile";
 import Orders from "./pages/Orders";
 import MessagesPage from "./pages/Messages";
 import Settings from "./pages/Settings";
+import TermsConditions from "./pages/TermsConditions";
 
 const queryClient = new QueryClient();
 
@@ -50,7 +50,7 @@ const App = () => (
             <Route path="/orders" element={<Orders />} />
             <Route path="/messages" element={<MessagesPage />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/syarat-ketentuan" element={<div>Terms & Conditions Page Placeholder</div>} />
+            <Route path="/syarat-ketentuan" element={<TermsConditions />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
