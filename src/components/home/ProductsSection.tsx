@@ -40,12 +40,12 @@ const featuredProducts: Product[] = [{
   reviewCount: 89
 }, {
   id: 4,
-  name: "Buah Alpukat Madu",
-  image: "https://images.unsplash.com/photo-1601039641847-7857b994d704?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-  price: 85000,
-  seller: "Kebun Subur Abadi",
-  rating: 5.0,
-  reviewCount: 128
+  name: "Ekstrak Nutrisi Tanaman Premium",
+  image: "/lovable-uploads/4d1a9e99-d789-4c02-b66d-a20678a60cb5.png",
+  price: 125000,
+  seller: "Bio Nutrisi Labs",
+  rating: 4.9,
+  reviewCount: 87
 }];
 
 const ProductsSection = () => {

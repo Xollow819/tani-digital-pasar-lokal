@@ -1,3 +1,4 @@
+
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -117,6 +118,17 @@ const Marketplace = () => {
       rating: 4.8,
       reviewCount: 65,
       category: "alat"
+    },
+    {
+      id: 9,
+      name: "Ekstrak Nutrisi Tanaman Premium",
+      image: "/lovable-uploads/4d1a9e99-d789-4c02-b66d-a20678a60cb5.png",
+      price: 125000,
+      seller: "Bio Nutrisi Labs",
+      location: "Jakarta, DKI Jakarta",
+      rating: 4.9,
+      reviewCount: 87,
+      category: "pupuk"
     },
   ];
 
