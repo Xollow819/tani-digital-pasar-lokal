@@ -1,3 +1,4 @@
+
 export interface Video {
   id: number;
   title: string;
@@ -20,6 +21,15 @@ export const educationalVideos: Video[] = [
   },
   {
     id: 2,
+    title: "Teknik Budidaya Tanaman Modern - Tips Praktis",
+    thumbnail: "https://img.youtube.com/vi/aCJxQStOkN0/maxresdefault.jpg",
+    duration: "0:60",
+    creator: "Agri Modern",
+    views: 125000,
+    videoUrl: "https://www.youtube.com/embed/aCJxQStOkN0"
+  },
+  {
+    id: 3,
     title: "Tutorial Hidroponik untuk Pemula",
     thumbnail: "https://img.youtube.com/vi/1uaAgF_QSUA/maxresdefault.jpg",
     duration: "22:15",
@@ -28,7 +38,7 @@ export const educationalVideos: Video[] = [
     videoUrl: "https://www.youtube.com/embed/1uaAgF_QSUA"
   },
   {
-    id: 3,
+    id: 4,
     title: "Teknik Pemupukan yang Benar untuk Tanaman",
     thumbnail: "https://img.youtube.com/vi/tKOVF_9ZLkA/maxresdefault.jpg",
     duration: "18:30",
@@ -37,7 +47,7 @@ export const educationalVideos: Video[] = [
     videoUrl: "https://www.youtube.com/embed/tKOVF_9ZLkA"
   },
   {
-    id: 4,
+    id: 5,
     title: "Mengatasi Hama Tanaman Secara Alami",
     thumbnail: "https://img.youtube.com/vi/8GlXJTf8O6w/maxresdefault.jpg",
     duration: "14:20",
@@ -46,7 +56,7 @@ export const educationalVideos: Video[] = [
     videoUrl: "https://www.youtube.com/embed/8GlXJTf8O6w"
   },
   {
-    id: 5,
+    id: 6,
     title: "Cara Menanam Cabai yang Menguntungkan",
     thumbnail: "https://img.youtube.com/vi/XQ0WkZhLwKg/maxresdefault.jpg",
     duration: "25:40",
@@ -55,7 +65,7 @@ export const educationalVideos: Video[] = [
     videoUrl: "https://www.youtube.com/embed/XQ0WkZhLwKg"
   },
   {
-    id: 6,
+    id: 7,
     title: "Budidaya Jamur Tiram di Rumah",
     thumbnail: "https://img.youtube.com/vi/ZVH2QHJcHsQ/maxresdefault.jpg",
     duration: "19:25",
@@ -64,7 +74,7 @@ export const educationalVideos: Video[] = [
     videoUrl: "https://www.youtube.com/embed/ZVH2QHJcHsQ"
   },
   {
-    id: 7,
+    id: 8,
     title: "Cara Menanam Padi Organik Modern",
     thumbnail: "https://img.youtube.com/vi/dFzhjnjXc2o/maxresdefault.jpg",
     duration: "28:15",
@@ -73,7 +83,7 @@ export const educationalVideos: Video[] = [
     videoUrl: "https://www.youtube.com/embed/dFzhjnjXc2o"
   },
   {
-    id: 8,
+    id: 9,
     title: "Budidaya Sayuran Organik Tanpa Pestisida",
     thumbnail: "https://img.youtube.com/vi/QvK4bANvWgE/maxresdefault.jpg",
     duration: "21:30",
