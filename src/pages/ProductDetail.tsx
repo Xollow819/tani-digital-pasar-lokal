@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
@@ -27,85 +28,153 @@ const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
-  // Data produk (contoh data statis, pada implementasi nyata akan diambil dari API)
-  const product = {
-    id: 1,
-    name: "Bibit Sayuran Organik Premium",
-    category: "Bibit",
-    subcategory: "Sayuran",
-    price: 35000,
-    discountedPrice: 30000,
-    stock: 150,
-    seller: "Tani Makmur",
-    location: "Bandung, Jawa Barat",
-    description: "Bibit sayuran organik premium berkualitas tinggi, ditanam dengan metode pertanian organik tanpa pestisida dan bahan kimia berbahaya. Cocok untuk ditanam di pekarangan rumah, kebun, atau pot. Menghasilkan sayuran yang sehat, segar, dan kaya nutrisi.",
-    rating: 4.8,
-    reviewCount: 156,
-    sales: 523,
-    images: [
-      "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1582284540020-8acbe03f4924?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    ],
-    specifications: [
-      { name: "Jenis Bibit", value: "Sayuran Organik" },
-      { name: "Varietas", value: "Mix (Bayam, Kangkung, Sawi, Selada)" },
-      { name: "Daya Tumbuh", value: "95%" },
-      { name: "Masa Panen", value: "30-45 hari" },
-      { name: "Sertifikasi", value: "Organik Indonesia" },
-      { name: "Berat Kemasan", value: "50 gram" },
-      { name: "Tanggal Kemas", value: "April 2025" },
-      { name: "Masa Simpan", value: "12 bulan" }
-    ],
-    reviews: [
-      {
-        id: 1,
-        user: "Ahmad Sulaiman",
-        avatar: "https://i.pravatar.cc/150?img=11",
-        rating: 5,
-        date: "2 April 2025",
-        content: "Bibit sangat berkualitas, semua tumbuh dengan baik. Panen melimpah dan sayurannya enak sekali. Sangat direkomendasikan!",
-        images: ["https://images.unsplash.com/photo-1590136519928-afeef928419d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]
-      },
-      {
-        id: 2,
-        user: "Siti Nurhaliza",
-        avatar: "https://i.pravatar.cc/150?img=32",
-        rating: 4,
-        date: "27 Maret 2025",
-        content: "Bibit tumbuh dengan cepat dan subur. Hanya ada beberapa yang tidak tumbuh, tapi secara keseluruhan bagus.",
-        images: []
-      },
-      {
-        id: 3,
-        user: "Budi Santoso",
-        avatar: "https://i.pravatar.cc/150?img=51",
-        rating: 5,
-        date: "20 Maret 2025",
-        content: "Pengiriman cepat dan pengemasan rapi. Bibit tumbuh dengan baik. Puas dengan produk ini. Akan beli lagi.",
-        images: ["https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]
-      },
-      {
-        id: 4,
-        user: "Dewi Anggraini",
-        avatar: "https://i.pravatar.cc/150?img=44",
-        rating: 5,
-        date: "15 Maret 2025",
-        content: "Bibit tumbuh dengan cepat. Sangat cocok untuk kebun kecil di rumah. Harga terjangkau untuk kualitas yang bagus.",
-        images: []
-      },
-      {
-        id: 5,
-        user: "Rudi Hartono",
-        avatar: "https://i.pravatar.cc/150?img=60",
-        rating: 4,
-        date: "10 Maret 2025",
-        content: "Puas dengan produknya, pengiriman agak lama tapi bibit tetap bagus saat sampai. Pertumbuhan baik.",
-        images: []
-      }
-    ]
+  // Get product data based on ID
+  const getProductData = (productId: string) => {
+    if (productId === "9") {
+      return {
+        id: 9,
+        name: "Ekstrak Nutrisi Tanaman Premium",
+        category: "Pupuk & Nutrisi",
+        subcategory: "Nutrisi Cair",
+        price: 135000,
+        discountedPrice: 125000,
+        stock: 89,
+        seller: "Bio Nutrisi Labs",
+        location: "Jakarta, DKI Jakarta",
+        description: "Ekstrak nutrisi tanaman premium dengan formula khusus yang mengandung vitamin, mineral, dan nutrisi penting untuk pertumbuhan optimal tanaman. Dibuat dari bahan-bahan organik berkualitas tinggi, produk ini dapat meningkatkan hasil panen hingga 40% dan memperkuat daya tahan tanaman terhadap hama dan penyakit.",
+        rating: 4.9,
+        reviewCount: 87,
+        sales: 234,
+        images: [
+          "/lovable-uploads/4d1a9e99-d789-4c02-b66d-a20678a60cb5.png",
+          "https://images.unsplash.com/photo-1584736286279-a9b8df642c7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          "https://images.unsplash.com/photo-1574263867128-a3d5c1b1deac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        ],
+        specifications: [
+          { name: "Jenis Produk", value: "Ekstrak Nutrisi Cair" },
+          { name: "Komposisi", value: "NPK, Mikronutrien, Vitamin B kompleks" },
+          { name: "Konsentrasi", value: "98% bahan aktif" },
+          { name: "Volume", value: "1 Liter" },
+          { name: "Aplikasi", value: "Semprot daun & siram akar" },
+          { name: "Dosis", value: "5-10ml per liter air" },
+          { name: "Sertifikasi", value: "BPOM & Organik Indonesia" },
+          { name: "Masa Simpan", value: "24 bulan" }
+        ],
+        reviews: [
+          {
+            id: 1,
+            user: "Pak Hendro",
+            avatar: "https://i.pravatar.cc/150?img=11",
+            rating: 5,
+            date: "5 Mei 2025",
+            content: "Nutrisi tanaman yang luar biasa! Tanaman cabe saya jadi lebih subur dan buahnya lebih besar. Sangat direkomendasikan untuk petani profesional.",
+            images: ["https://images.unsplash.com/photo-1574263867128-a3d5c1b1deac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]
+          },
+          {
+            id: 2,
+            user: "Ibu Sari",
+            avatar: "https://i.pravatar.cc/150?img=32",
+            rating: 5,
+            date: "28 April 2025",
+            content: "Produk berkualitas tinggi, kemasan rapi dan aman. Tanaman sayuran saya tumbuh dengan sangat baik setelah menggunakan produk ini.",
+            images: []
+          },
+          {
+            id: 3,
+            user: "Ahmad Fauzi",
+            avatar: "https://i.pravatar.cc/150?img=51",
+            rating: 4,
+            date: "20 April 2025",
+            content: "Efek terlihat dalam 1 minggu penggunaan. Daun tanaman lebih hijau dan segar. Harga sebanding dengan kualitas.",
+            images: []
+          }
+        ]
+      };
+    }
+    
+    // Default product (original bibit sayuran)
+    return {
+      id: 1,
+      name: "Bibit Sayuran Organik Premium",
+      category: "Bibit",
+      subcategory: "Sayuran",
+      price: 35000,
+      discountedPrice: 30000,
+      stock: 150,
+      seller: "Tani Makmur",
+      location: "Bandung, Jawa Barat",
+      description: "Bibit sayuran organik premium berkualitas tinggi, ditanam dengan metode pertanian organik tanpa pestisida dan bahan kimia berbahaya. Cocok untuk ditanam di pekarangan rumah, kebun, atau pot. Menghasilkan sayuran yang sehat, segar, dan kaya nutrisi.",
+      rating: 4.8,
+      reviewCount: 156,
+      sales: 523,
+      images: [
+        "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1582284540020-8acbe03f4924?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      ],
+      specifications: [
+        { name: "Jenis Bibit", value: "Sayuran Organik" },
+        { name: "Varietas", value: "Mix (Bayam, Kangkung, Sawi, Selada)" },
+        { name: "Daya Tumbuh", value: "95%" },
+        { name: "Masa Panen", value: "30-45 hari" },
+        { name: "Sertifikasi", value: "Organik Indonesia" },
+        { name: "Berat Kemasan", value: "50 gram" },
+        { name: "Tanggal Kemas", value: "April 2025" },
+        { name: "Masa Simpan", value: "12 bulan" }
+      ],
+      reviews: [
+        {
+          id: 1,
+          user: "Ahmad Sulaiman",
+          avatar: "https://i.pravatar.cc/150?img=11",
+          rating: 5,
+          date: "2 April 2025",
+          content: "Bibit sangat berkualitas, semua tumbuh dengan baik. Panen melimpah dan sayurannya enak sekali. Sangat direkomendasikan!",
+          images: ["https://images.unsplash.com/photo-1590136519928-afeef928419d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]
+        },
+        {
+          id: 2,
+          user: "Siti Nurhaliza",
+          avatar: "https://i.pravatar.cc/150?img=32",
+          rating: 4,
+          date: "27 Maret 2025",
+          content: "Bibit tumbuh dengan cepat dan subur. Hanya ada beberapa yang tidak tumbuh, tapi secara keseluruhan bagus.",
+          images: []
+        },
+        {
+          id: 3,
+          user: "Budi Santoso",
+          avatar: "https://i.pravatar.cc/150?img=51",
+          rating: 5,
+          date: "20 Maret 2025",
+          content: "Pengiriman cepat dan pengemasan rapi. Bibit tumbuh dengan baik. Puas dengan produk ini. Akan beli lagi.",
+          images: ["https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]
+        },
+        {
+          id: 4,
+          user: "Dewi Anggraini",
+          avatar: "https://i.pravatar.cc/150?img=44",
+          rating: 5,
+          date: "15 Maret 2025",
+          content: "Bibit tumbuh dengan cepat. Sangat cocok untuk kebun kecil di rumah. Harga terjangkau untuk kualitas yang bagus.",
+          images: []
+        },
+        {
+          id: 5,
+          user: "Rudi Hartono",
+          avatar: "https://i.pravatar.cc/150?img=60",
+          rating: 4,
+          date: "10 Maret 2025",
+          content: "Puas dengan produknya, pengiriman agak lama tapi bibit tetap bagus saat sampai. Pertumbuhan baik.",
+          images: []
+        }
+      ]
+    };
   };
+
+  const product = getProductData(id || "1");
 
   // Handle increment and decrement quantity
   const incrementQuantity = () => {
@@ -159,7 +228,7 @@ const ProductDetail = () => {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <Link to="/marketplace?category=bibit">Bibit</Link>
+              <Link to={`/marketplace?category=${product.category.toLowerCase()}`}>{product.category}</Link>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
